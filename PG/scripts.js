@@ -3,12 +3,13 @@ document.getElementById("send-button").addEventListener("click", async function 
     const inputValue = inputField.value;
     if (inputValue.trim() !== "") {
         appendMessage("user", inputValue);
-        const response = await fetch('/get-response', {
+        const response = await fetch('http://localhost:3000/get-response', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ message: inputValue })
         });
         const data = await response.json();
+        console.log(data);
         appendMessage("bot", data.message);
     }
     inputField.value = "";

@@ -25,7 +25,7 @@ app.post('/get-response', async (req, res) => {
   res.send({ message: response.data.choices[0].message.content });
 });
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
